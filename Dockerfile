@@ -38,7 +38,7 @@ RUN sed -E -i -e 's/ServerName www.example.com:80/ServerName localhost:8080/g' /
 
 # Clone your application (cloning CakePHP 3 / app instead of composer create project to demonstrate application deployment example)
 RUN rm -rf /var/www/html
-ADD cakephp-app /var/www/html
+ADD cakephp /var/www/html
 
 # Set workdir (no more cd from now)
 WORKDIR /var/www/html
