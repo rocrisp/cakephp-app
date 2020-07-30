@@ -12,18 +12,15 @@ Based on Centos 7 and PHP 7.3
 
 Usage
 -----
-
-You can edit the `Dockerfile` to add your own git, composer or custom commands to add your application code to the image.
-
 To create the image `quay.io/rocrisp/cakedemo`, execute the following command on the cakephp-app directory:
+**Note: Replace quay.io/rocrisp with your own registry.**
 
 ```bash
 docker build --no-cache -t quay.io/rocrisp/cakedemo:v1 .
 ```
-**Note: Replace quay.io/rocrisp with your own registry.**
 
-
-requirement: You can now push your new image to a registry:
+Openshift Operator requires the image to pull from a registry.
+You can now push your new image to a registry:
 
 ```bash
 docker push quay.io/rocrisp/cakedemo
@@ -32,20 +29,7 @@ docker push quay.io/rocrisp/cakedemo
 Running your CakePHP docker image
 -----------------------------------
 
-Start your image forwarding container port 8080 to localhost port 80:
-
-```bash
-docker run -d -p 80:8080 quay.io/rocrisp/cakedemo:v1
-```
-
-If you get this error: Bind for 0.0.0.0:80 failed: port is already allocated.
-
-```bash
-docker ps -a | grep 80
-docker rm -f <container id >
-```
-
-Example: Connecting to a MySQL container
+1: Connecting to a MySQL container
 -----------------------------------
 Start a [MySQL container](https://hub.docker.com/_/mysql/) 
 
@@ -56,11 +40,8 @@ docker run -d \
 	-e MYSQL_DATABASE=cakephp \
 	mysql:5.7
 ```
-
-Start your image and:
-* Link it to the MySQL container you just started (so your container can contact it)
-* Connect to a remote database server using the CakePHP DATABASE_URL env variable filled with the variables given in the command above.
-* Use the `database` session handler using our the SESSION_DEFAULTS env variable (see `Dockerfile` for implementation)
+2: Running your CakePHP docker image and and link it to the MySQL container you just started.
+-----------------------------------
 
 ```bash
 docker run -d -p 80:8080 \
@@ -81,3 +62,15 @@ Visit `http://localhost/` in your browser or
 	curl http://localhost/
 
 You can now start using your CakePHP container!
+
+
+Troubleshooting
+-------------------------
+
+
+If you get this error: Bind for 0.0.0.0:80 failed: port is already allocated.
+
+```bash
+docker ps -a | grep 80
+docker rm -f <container id >
+```
