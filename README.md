@@ -8,7 +8,7 @@ This is a quickstart Dockerfile for deploying CakePHP in a Docker container, abl
 
 Based on Centos 7 and PHP 7.3
 
-**Note: This project is meant to be an example to study the basics and essentials of Kubernetes Operators using the Openshift platfrom with the CakePHP application in a Docker environment, therefore it is build on an Centos base image rather then a PHP base image, uses a 'simple' webserver like Apache and has some non-efficient commands to demonstrate stuff.**
+**Note: This project is meant to be an example to study the basics and essentials of Kubernetes Operators using the Openshift platfrom with the CakePHP application in a Docker environment, therefore it is build on an Centos base image rather then a PHP base image.**
 
 Usage
 -----
@@ -20,7 +20,8 @@ To create the image `quay.io/rocrisp/cakedemo`, execute the following command on
 ```bash
 docker build --no-cache -t quay.io/rocrisp/cakedemo:v1 .
 ```
-Replace quay.io/rocrisp with your own registry
+**Note: Replace quay.io/rocrisp with your own registry.**
+
 
 requirement: You can now push your new image to a registry:
 
