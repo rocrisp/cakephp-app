@@ -1,6 +1,6 @@
 FROM centos:7
 
-MAINTAINER Rose Crisp <rocrisp@redhat.com>
+LABEL maintainer="Rose Crisp <rocrisp@redhat.com>"
 
 EXPOSE 8080
 EXPOSE 8443
