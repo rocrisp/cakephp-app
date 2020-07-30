@@ -2,7 +2,8 @@
 cakephp-app
 ======================
 
-This is a quickstart Dockerfile for deploying CakePHP application forked from [here](https://github.com/sclorg/cakephp-ex) in a Docker container, able to connect to a remote database, and inject ENV vars to configure your application.
+This is a quickstart Dockerfile for deploying in a Docker container, able to connect to a remote database, and inject ENV vars to configure your application.
+** CakePHP application forked from [here](https://github.com/sclorg/cakephp-ex) 
 
 Based on Centos 7 and PHP 7.3
 
